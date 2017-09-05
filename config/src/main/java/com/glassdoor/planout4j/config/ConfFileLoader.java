@@ -2,6 +2,7 @@ package com.glassdoor.planout4j.config;
 
 import java.io.File;
 
+import org.apache.log4j.chainsaw.Main;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import com.typesafe.config.Config;
@@ -21,11 +22,13 @@ public class ConfFileLoader {
     }
 
     public static final String P4J_CONF_FILE = "planout4jConfigFile";
+
     /**
      * Returns config object which will attempt to resolve properties in the following order:<ol>
-     *     <li>custom config file pointed to by <code>planout4jConfigFile</code> system property</li>
-     *     <li>default embedded config</li>
+     * <li>custom config file pointed to by <code>planout4jConfigFile</code> system property</li>
+     * <li>default embedded config</li>
      * </ol>
+     *
      * @return Planout4j configuration (backends, etc.)
      */
     public static Config loadConfig() {
@@ -46,4 +49,13 @@ public class ConfFileLoader {
         return internalConfig;
     }
 
+    public static void main(String[] args) {
+
+        final String customConfigPath = "/Users/zhuifengbuaa/IdeaProject/planout4j/demos/conf/demo_planout4j.conf";
+        final File configFile = new File(customConfigPath);
+        boolean file = configFile.isFile();
+        System.out.println("file is: " + file);
+//                && configFile.canRead()
+    }
 }
+

@@ -14,12 +14,12 @@ public class VersionLogger {
 
     public static Properties properties(final String module) {
         final Properties props = new Properties();
-        final String file = "planout4j-" + module + ".git.properties";
-        try {
-            props.load(VersionLogger.class.getResourceAsStream("/" + file));
-        } catch (Exception e) {
-            LOG.warn("Failed to load embedded " + file, e);
-        }
+//        final String file = "planout4j-" + module + ".git.properties";
+//        try {
+//            props.load(VersionLogger.class.getResourceAsStream("/" + file));
+//        } catch (Exception e) {
+//            LOG.warn("Failed to load embedded " + file, e);
+//        }
         return props;
     }
 

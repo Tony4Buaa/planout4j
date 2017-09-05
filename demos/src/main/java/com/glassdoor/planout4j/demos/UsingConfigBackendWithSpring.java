@@ -3,6 +3,8 @@ package com.glassdoor.planout4j.demos;
 import java.nio.file.Paths;
 import java.util.Map;
 
+import com.glassdoor.planout4j.config.Planout4jConfigShipperImpl;
+import com.glassdoor.planout4j.config.ValidationException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.annotation.Bean;
@@ -33,16 +35,26 @@ public class UsingConfigBackendWithSpring {
             // get params individually using defaults
             int pageSize = ns.get().getParam("page_size", 15);
             boolean showFullDetails = ns.get().getParam("full_details", false);
-            System.out.println("allParams: " + allParams);
-            System.out.println("pageSize: " + pageSize);
-            System.out.println("showFullDetails: " + showFullDetails);
+//            System.out.println("allParams: " + allParams);
+//            System.out.println("pageSize: " + pageSize);
+//            System.out.println("showFullDetails: " + showFullDetails);
+
         }
+//        try {
+//            new Planout4jConfigShipperImpl().ship(false);
+//        } catch (ValidationException e) {
+//            e.printStackTrace();
+//        }
     }
 
     public static void main(String[] args) {
-        System.setProperty(ConfFileLoader.P4J_CONF_FILE, Paths.get("conf", "demo_planout4j.conf").toString());
-        new AnnotationConfigApplicationContext(AppCtx.class).getBean(UsingConfigBackendWithSpring.class)
-                .run(args.length > 0 ? args[0] : "");
+        System.setProperty(ConfFileLoader.P4J_CONF_FILE, Paths.get("/Users/zhuifengbuaa/IdeaProject/planout4j/demos/conf", "demo_planout4j.conf").toString());
+        UsingConfigBackendWithSpring bean = new AnnotationConfigApplicationContext(AppCtx.class).getBean(UsingConfigBackendWithSpring.class);
+        for (int i = 0; i < 10; i++) {
+            String unit = "unit_" + i;
+            bean.run(unit);
+        }
+
         System.exit(0);
     }
 

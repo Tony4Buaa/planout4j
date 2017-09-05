@@ -41,7 +41,7 @@
       }
     },
     {
-      "definition": "UI_Button_Test",
+      "definition": "Sample_Experiment_2",
       "assign": {
         "op": "seq",
         "seq": [
@@ -104,18 +104,6 @@
       "definition": "Speed_NumResults_Test",
       "name": "Speed_NR_Ph1",
       "segments": 20
-    },
-    {
-      "action": "add",
-      "definition": "UI_Button_Test",
-      "name": "UI_Ph1",
-      "segments": 40
-    },
-    {
-      "action": "add",
-      "definition": "Speed_NumResults_Test",
-      "name": "Speed_NR_Ph2",
-      "segments": 40
     }
   ]
 }
